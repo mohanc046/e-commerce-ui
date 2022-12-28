@@ -47,7 +47,7 @@ export const About = () => {
                         <div class="contact__widget">
                             <span class="icon_mail_alt"></span>
                             <h4>Email</h4>
-                            <p>hello@colorlib.com</p>
+                            <p>mohan@gmail.com</p>
                         </div>
                     </div>
                 </div>

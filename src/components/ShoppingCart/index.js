@@ -82,7 +82,7 @@ export const ShoppingCart = () => {
                       <td class="shoping__cart__quantity">
                         <div class="quantity">
                           <div class="pro-qty">
-                            <input type="text" value={`₹{item.quantity}`} />
+                            <input type="text" value={`${item.quantity}`} />
                           </div>
                         </div>
                       </td>
