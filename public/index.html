@@ -1,152 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Learts – Handmade Shop eCommerce HTML Template</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/logo-nsh-2.png">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- CSS
+	============================================ -->
 
+  <!-- Vendor CSS (Bootstrap & Icon Font) -->
+  <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/vendor/font-awesome-pro.min.css">
+  <link rel="stylesheet" href="assets/css/vendor/themify-icons.css">
+  <link rel="stylesheet" href="assets/css/vendor/customFonts.css">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap" rel="stylesheet">
+  <!-- Plugins CSS (All Plugins Files) -->
+  <link rel="stylesheet" href="assets/css/plugins/select2.min.css">
+  <link rel="stylesheet" href="assets/css/plugins/perfect-scrollbar.css">
+  <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
+  <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+  <link rel="stylesheet" href="assets/css/plugins/ion.rangeSlider.min.css">
+  <link rel="stylesheet" href="assets/css/plugins/photoswipe.css">
+  <link rel="stylesheet" href="assets/css/plugins/photoswipe-default-skin.css">
+  <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
+  <link rel="stylesheet" href="assets/css/plugins/slick.css">
+  <link rel="stylesheet" href="assets/css/style.min.css">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;900&display=swap"
-    rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-
-  <!--====== Favicon ======-->
-
-  <!----bootstrap link --->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css"
-    integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="../src/asserts/owl.theme.default.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
-    integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-  <!--====== Google fonts ======-->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-    rel="stylesheet">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-  <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.css"
-    type="text/css">
-
-  <link rel="stylesheet" href="https://unpkg.com/@icon/elegant-icons/elegant-icons.css">
-
-  <link rel="stylesheet" href="assets/css/owl.carousel.min.css" type="text/css">
-
-  <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-  <title>Shopping</title>
 </head>
 
 <body>
+
   <noscript>You need to enable JavaScript to run this app.</noscript>
+  
   <div id="root"></div>
 
-  <script>
-    $(document).ready(function () {
-      $('.categories__slider').owlCarousel({
-        loop: true,
-        margin: 0,
-        items: 4,
-        dots: false,
-        nav: true,
-        navText: ["<span class='fa fa-angle-left'><span/>", "<span class='fa fa-angle-right'><span/>"],
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        smartSpeed: 1200,
-        autoHeight: false,
-        autoplay: true,
-        responsive: {
+  <!-- JS
+============================================ -->
 
-          0: {
-            items: 1,
-          },
+  <!-- Vendors JS -->
+  <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="assets/js/vendor/jquery-3.4.1.min.js"></script>
+  <script src="assets/js/vendor/jquery-migrate-3.1.0.min.js"></script>
+  <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
 
-          480: {
-            items: 2,
-          },
+  <!-- Plugins JS -->
+  <script src="assets/js/plugins/select2.min.js"></script>
+  <script src="assets/js/plugins/jquery.nice-select.min.js"></script>
+  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="assets/js/plugins/swiper.min.js"></script>
+  <script src="assets/js/plugins/slick.min.js"></script>
+  <script src="assets/js/plugins/mo.min.js"></script>
+  <script src="assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+  <script src="assets/js/plugins/jquery.countdown.min.js"></script>
+  <script src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/js/plugins/isotope.pkgd.min.js"></script>
+  <script src="assets/js/plugins/jquery.matchHeight-min.js"></script>
+  <script src="assets/js/plugins/ion.rangeSlider.min.js"></script>
+  <script src="assets/js/plugins/photoswipe.min.js"></script>
+  <script src="assets/js/plugins/photoswipe-ui-default.min.js"></script>
+  <script src="assets/js/plugins/jquery.zoom.min.js"></script>
+  <script src="assets/js/plugins/ResizeSensor.js"></script>
+  <script src="assets/js/plugins/jquery.sticky-sidebar.min.js"></script>
+  <script src="assets/js/plugins/product360.js"></script>
+  <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
+  <script src="assets/js/plugins/jquery.scrollUp.min.js"></script>
+  <script src="assets/js/plugins/scrollax.min.js"></script>
+  <script src="assets/js/plugins/instafeed.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-          768: {
-            items: 3,
-          },
-
-          992: {
-            items: 4,
-          }
-        }
-      }
-      );
-
-      $(".mobile-menu").slicknav({
-          prependTo: '#mobile-menu-wrap',
-          allowParentLinks: true
-        });
-    });
-
-  </script>
-
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
+  <!-- Main Activation JS -->
   <script src="assets/js/main.js"></script>
 
-  <script src="assets/js/owl.carousel.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAjVfI-Pf3csYJ-3V4zlBXaQeamiyXlNIE",
+      authDomain: "download-report-b81be.firebaseapp.com",
+      projectId: "download-report-b81be",
+      storageBucket: "download-report-b81be.appspot.com",
+      messagingSenderId: "286798863709",
+      appId: "1:286798863709:web:91c8a378ed3bbfa329dcb4",
+      measurementId: "G-7W099K4BCK"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 
-  <script src="assets/js/jquery-3.3.1.min.js"></script>
-
-  <script src="assets/js/jquery-ui.min.js"></script>
-
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
 </body>
 
 </html>

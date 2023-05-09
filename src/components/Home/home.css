@@ -1,0 +1,62 @@
+.primaryDropDownContainer {
+  padding-top: 134px;
+  text-align: center;
+}
+
+.borderRadius9 {
+  border-radius: 9px;
+}
+
+.category1Container {
+  margin-top: 106px;
+  margin-left: 128px;
+}
+
+
+.categoryButtonStyle {
+  background-color: white;
+  color: black;
+  font-size: 23px;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+
+.searchInputContainer {
+  width: 50%;
+  box-sizing: border-box;
+  border: 2px solid #0d6efd;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  /* background-image: url(searchicon.png); */
+  /* background-position: 10px 10px; */
+  /* background-repeat: no-repeat; */
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.marginTop90 {
+  margin-top: 90px;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.downloadButtonContainer {
+  margin-left: 41%;
+  padding-top: 77px;
+  padding-bottom: 70px;
+}
+
+.downloadButtonStyle {
+  color: white;
+  border-color: #00b7ea;
+  background: #00b7ea;
+  border-radius: 18px;
+}

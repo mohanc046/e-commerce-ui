@@ -1,215 +1,263 @@
-import banner from '../../img/hero/banner.jpg'
-
-import feature1 from '../../img/featured/feature-1.jpg'
-import feature2 from '../../img/featured/feature-2.jpg'
-import feature3 from '../../img/featured/feature-3.jpg'
-import feature4 from '../../img/featured/feature-4.jpg'
-import feature5 from '../../img/featured/feature-5.jpg'
-import feature6 from '../../img/featured/feature-6.jpg'
-import feature7 from '../../img/featured/feature-7.jpg'
-import feature8 from '../../img/featured/feature-8.jpg'
-
-import category_1 from '../../img/categories/cat-1.jpg'
-import category_2 from '../../img/categories/cat-2.jpg'
-import category_3 from '../../img/categories/cat-3.jpg'
-import category_4 from '../../img/categories/cat-4.jpg'
-import category_5 from '../../img/categories/cat-5.jpg'
-
-import { useState } from 'react'
+import { useEffect } from 'react';
+import _ from 'lodash';
+import { Footer } from '../Footer';
+import { Header } from '../Header';
+import { PageHeader } from '../PageHeader';
+import { useStoreActions, useStoreState } from '../../store/hooks';
+import './home.css';
+import ProductTemplate from './ProductTemplate';
+import { Spinner } from '../Loader/Spinner';
 
 export const Home = () => {
 
+  let downloadReportDataStore = useStoreState(state => state.downloadReport);
 
-  const [featuredProduct, setFeaturedProduct] = useState([
-    {
-      additionCss: "fresh-meat",
-      backgroundContainerStyle: { backgroundImage: `url(${feature1})` },
-      productName: "Crab Pool Security",
-      price: '₹30.00'
-    },
-    {
-      additionCss: "fresh-meat",
-      backgroundContainerStyle: { backgroundImage: `url(${feature2})` },
-      productName: "Crab Pool Security",
-      price: '₹30.00'
-    },
-    {
-      additionCss: "fresh-meat",
-      backgroundContainerStyle: { backgroundImage: `url(${feature3})` },
-      productName: "Crab Pool Security",
-      price: '₹30.00'
-    },
-    {
-      additionCss: "fresh-meat",
-      backgroundContainerStyle: { backgroundImage: `url(${feature4})` },
-      productName: "Crab Pool Security",
-      price: '₹30.00'
-    },
-    {
-      additionCss: "fresh-meat",
-      backgroundContainerStyle: { backgroundImage: `url(${feature5})` },
-      productName: "Crab Pool Security",
-      price: '₹30.00'
-    },
-    {
-      additionCss: "fresh-meat",
-      backgroundContainerStyle: { backgroundImage: `url(${feature6})` },
-      productName: "Crab Pool Security",
-      price: '₹30.00'
-    },
-    {
-      additionCss: "fresh-meat",
-      backgroundContainerStyle: { backgroundImage: `url(${feature7})` },
-      productName: "Crab Pool Security",
-      price: '₹30.00'
-    },
-    {
-      additionCss: "fresh-meat",
-      backgroundContainerStyle: { backgroundImage: `url(${feature8})` },
-      productName: "Crab Pool Security",
-      price: '₹30.00'
-    },
-  ])
+  const category1 = downloadReportDataStore.data.category1;
 
-  const [slider, setSlider] = useState([
+  const category2 = downloadReportDataStore.data.category2;
+
+  const selectedPrimaryCategory = downloadReportDataStore.data.selectedPrimaryCategory;
+
+  const selectedSecondaryCategory = downloadReportDataStore.data.selectedSecondaryCategory;
+
+  const productList = downloadReportDataStore.data.productList;
+
+  const pricingList = downloadReportDataStore.data.pricingList;
+
+  const isCategoryLoading = downloadReportDataStore.data.isCategoryLoading;
+
+  const isProductListLoading = downloadReportDataStore.data.isProductListLoading;
+
+  const selectedPricing = downloadReportDataStore.data.selectedPricing;
+
+  const searchText = downloadReportDataStore.data.searchText;
+
+  const dropDownButtonOption = downloadReportDataStore.data.dropDownButtonOption;
+
+  let fetchCategoryInformation = useStoreActions(action => action.downloadReport.fetchCategoryInformation);
+
+  let fetchProductList = useStoreActions(action => action.downloadReport.fetchProductList);
+
+  let updateStore = useStoreActions(action => action.downloadReport.updateStore);
+
+  useEffect(() => {
+    fetchCategoryInformation();
+  }, [])
+
+  let visibilityConditionCheck = _.get(dropDownButtonOption, 'value', null);
+
+  const fixedDropDownInfo = [
     {
-      productName: 'Fresh Fruit',
-      backgroundContainerStyle: { backgroundImage: `url(${category_1})` }
+      value: 1,
+      label: 'Download category',
     },
     {
-      productName: 'Dried Fruit',
-      backgroundContainerStyle: { backgroundImage: `url(${category_2})` }
+      value: 2,
+      label: 'Download by price',
     },
     {
-      productName: 'Vegetables',
-      backgroundContainerStyle: { backgroundImage: `url(${category_3})` }
+      value: 3,
+      label: 'Download by catalogue and price',
     },
     {
-      productName: 'drink fruits',
-      backgroundContainerStyle: { backgroundImage: `url(${category_4})` }
+      value: 4,
+      label: 'Download by product search',
     },
     {
-      productName: 'drink fruits',
-      backgroundContainerStyle: { backgroundImage: `url(${category_5})` }
-    },
-  ])
+      value: 5,
+      label: 'Download by catalogue name',
+    }
+  ]
+
 
   return (<>
-    <section class="hero">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="hero__categories">
-              <div class="hero__categories__all">
-                <i class="fa fa-bars"></i>
-                <span>All departments</span>
-              </div>
-              <ul>
-                <li><a href="#">Fresh Meat</a></li>
-                <li><a href="#">Vegetables</a></li>
-                <li><a href="#">Fruit & Nut Gifts</a></li>
-                <li><a href="#">Fresh Berries</a></li>
-                <li><a href="#">Ocean Foods</a></li>
-                <li><a href="#">Butter & Eggs</a></li>
-                <li><a href="#">Fast food</a></li>
-                <li><a href="#">Fresh Onion</a></li>
-                <li><a href="#">Papaya & Crisps</a></li>
-                <li><a href="#">Oatmeal</a></li>
-                <li><a href="#">Fresh Bananas</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-9">
-            <div class="hero__search">
-              <div class="hero__search__form">
-                <form action="#">
-                  <div class="hero__search__categories">
-                    All Categories
-                    <span class="arrow_carrot-down"></span>
-                  </div>
-                  <input type="text" placeholder="What do yo u need?" />
-                  <button type="submit" class="site-btn">SEARCH</button>
-                </form>
-              </div>
-              <div class="hero__search__phone">
-                <div class="hero__search__phone__icon">
-                  <i class="fa fa-phone"></i>
-                </div>
-                <div class="hero__search__phone__text">
-                  <h5>+65 11.188.888</h5>
-                  <span>support 24/7 time</span>
-                </div>
-              </div>
-            </div>
-            <div class="hero__item set-bg" style={{ backgroundImage: `url(${banner})` }}>
-              <div class="hero__text">
-                <span>FRUIT FRESH</span>
-                <h2>Vegetable <br />100% Organic</h2>
-                <p>Free Pickup and Delivery Available</p>
-                <a href="#" class="primary-btn">SHOP NOW</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="categories">
-      <div class="container">
-        <div class="row">
-          <div class="categories__slider owl-carousel">
-            {slider.map(item => {
-              return <div class="col-lg-3">
-                <div class="categories__item set-bg" style={item.backgroundContainerStyle} >
-                  <h5><a href="/shop-details">{item.productName}</a></h5>
-                </div>
-              </div>
-            })}
-          </div>
-        </div>
-      </div>
-    </section>
+    <Header />
 
-    <section class="featured spad">
+    <PageHeader />
+
+    <div class="section-title-container mb-50">
       <div class="container">
-        <div class="row">
+        <div class="row primaryDropDownContainer" >
           <div class="col-lg-12">
-            <div class="section-title">
-              <h2>Featured Product</h2>
-            </div>
-            <div class="featured__controls">
-              <ul>
-                <li class="active" data-filter="*">All</li>
-                <li data-filter=".oranges">Oranges</li>
-                <li data-filter=".fresh-meat">Fresh Meat</li>
-                <li data-filter=".vegetables">Vegetables</li>
-                <li data-filter=".fastfood">Fastfood</li>
-              </ul>
+            <div class="dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle borderRadius9" data-toggle="dropdown">
+                {isCategoryLoading && <Spinner />}
+                {_.get(dropDownButtonOption, 'label', `Choose filter to classify category`)}
+              </button>
+              <div class="dropdown-menu">
+                {
+                  fixedDropDownInfo.map(item => <a class="dropdown-item"
+                    onClick={() => updateStore({
+                      dropDownButtonOption: item,
+                      selectedPrimaryCategory: {},
+                      selectedSecondaryCategory: {},
+                      selectedPricing: {},
+                      searchText: ""
+                    })}>
+                    {_.get(item, 'label', '')}
+                  </a>)
+                }
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="row featured__filter">
-          {featuredProduct.map(item => {
-            return <div class={`col-lg-3 col-md-4 col-sm-6 mix oranges ${item.additionCss}`}>
-              <div class="featured__item">
-                <div class="featured__item__pic set-bg" style={item.backgroundContainerStyle}>
-                  <ul class="featured__item__pic__hover">
-                    <li><a href="/shop-details"><i class="fa fa-heart"></i></a></li>
-                    <li><a href="/shopping-cart"><i class="fa fa-retweet"></i></a></li>
-                    <li><a href="/shopping-cart"><i class="fa fa-shopping-cart"></i></a></li>
-                  </ul>
-                </div>
-                <div class="featured__item__text">
-                  <h6><a href="/shop-details">{item.productName}</a></h6>
-                  <h5>{item.price}</h5>
+    <div class="icon-box-area mb-100 mb-md-30 mb-sm-30">
+      <div class="container">
+        <div class="row category1Container">
+
+          {(visibilityConditionCheck === 1 || visibilityConditionCheck === 3) && (<>
+
+            <div class="col-md-4 mb-md-70 mb-sm-70">
+              <div class="single-icon-box">
+                <div class="icon-box-content">
+                  <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle categoryButtonStyle" type="button" data-toggle="dropdown" > {_.get(selectedPrimaryCategory, 'label', 'catagory 1')}</button>
+                    <ul class="dropdown-menu" >
+                      {
+                        category1.map(item => <li><a class="dropdown-item" onClick={() => {
+                          updateStore({
+                            selectedPrimaryCategory: {
+                              value: _.get(item, 'S_no', ''),
+                              label: _.get(item, 'Category1', '')
+                            }
+                          })
+                        }
+                        }>
+                          {_.get(item, 'Category1', '')}</a></li>)
+                      }
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          })}
+
+            <div class="col-md-4 mb-md-70 mb-sm-70">
+              <div class="single-icon-box mb-10">
+                <div class="icon-box-content">
+                  <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle categoryButtonStyle" type="button" data-toggle="dropdown" > {_.get(selectedSecondaryCategory, 'label', 'catagory 2')}</button>
+                    <ul class="dropdown-menu" >
+                      {
+                        category2.map(item => <li><a class="dropdown-item" onClick={() => {
+                          updateStore({
+                            selectedSecondaryCategory: {
+                              value: _.get(item, 'S.No', ''),
+                              label: _.get(item, 'Category2', '')
+                            }
+                          })
+                        }
+                        }>
+                          {_.get(item, 'Category2', '')}</a></li>)
+                      }
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+          )}
+
+          {(visibilityConditionCheck === 2 || visibilityConditionCheck === 3) && (
+            <div class="col-md-4 mb-md-70 mb-sm-70">
+              <div class="single-icon-box">
+                <div class="icon-box-icon">
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-primary dropdown-toggle categoryButtonStyle"
+                      type="button"
+                      data-toggle="dropdown"
+                    >
+                      {_.get(selectedPricing, 'label', 'price')}
+                    </button>
+                    <ul class="dropdown-menu">
+                      {
+                        pricingList.map(item => <li>
+                          <a class="dropdown-item" onClick={() => {
+                            updateStore({ selectedPricing: item })
+                          }}
+                          >
+                            {_.get(item, 'label', '')}
+                          </a></li>)
+                      }
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>)
+          }
+
         </div>
       </div>
-    </section>
+    </div>
+
+
+    {(visibilityConditionCheck === 4 || visibilityConditionCheck === 5) && (
+      <div class="box-layout-map-area mb-100">
+        <div class="container">
+          <div class="col-lg-12 marginTop90">
+            <form className="formContainer">
+              <input
+                value={searchText}
+                className='searchInputContainer'
+                type="text" name="search"
+                placeholder={visibilityConditionCheck === 4 ? "Product search .." : `Catalogue search`}
+                onChange={(event) => updateStore({ searchText: event.target.value })}
+                style={{
+                  width: "50%",
+                  border: "2px solid #0d6efd",
+                  borderRadius: "15px",
+                  backgroundColor: "white",
+                  padding: "12px 20px 12px 40px",
+                  boxSizing: "border-box",
+                  fontSize: "16px",
+                  transition: "ease-in-out",
+                  textAlign: "center"
+                }}
+              />
+            </form>
+          </div>
+        </div>
+      </div>)
+    }
+
+
+    <div class="section-title-container mb-50">
+      <div class="container">
+        <div class="row downloadButtonContainer">
+          <div class="col-lg-12">
+            <button
+              type="button"
+              class="btn btn-outline-primary downloadButtonStyle"
+              onClick={() => {
+                fetchProductList({
+                  primaryCategory: `${_.get(selectedPrimaryCategory, 'value', '')}`,
+                  secondaryCategory: `${_.get(selectedSecondaryCategory, 'value', '')}`,
+                  selectedPricing,
+                  searchText,
+                  isProductSearch: visibilityConditionCheck === 4,
+                  isCategorySearch: visibilityConditionCheck === 5,
+                })
+              }}
+            >
+              {isProductListLoading && <Spinner />}
+              {isProductListLoading ? 'PROCESSING' : 'DOWNLOAD'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style={{ display: "none" }}>
+      <div id="downloadReport-uniqueID" >
+        <ProductTemplate productList={productList} />
+      </div>
+    </div>
+
+    <Footer />
   </>
 
   )

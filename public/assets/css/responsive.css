@@ -1,0 +1,110 @@
+@media only screen and (min-width:1024px) and (max-width:1366px){
+    .row figure figcaption{
+        font-size: 17px!important;
+        font-weight: 800!important;
+        color: black!important;
+        line-height: 1.5!important;
+        position: absolute!important;
+        top:75px!important;
+        left: 13px!important;
+        
+
+}
+
+}
+
+@media only screen and (min-width:820px) and (max-width:1023px){
+    .page-title-section .carousel .carousel-inner .carousel-item img
+    { height: 200px !important;
+     max-width: 100%;
+ }
+ .row figure figcaption{
+    font-size: 12px!important;
+    font-weight: 800!important;
+    color: black!important;
+    line-height: 1.5!important;
+    position: absolute!important;
+    top:53px!important;
+    left: 13px!important;
+    }
+    .section .product-deal-content{
+        margin-left: 75px!important;
+    
+     }
+     .sec-con{
+        margin-top:-65px;
+        margin-bottom:-48px;
+  }
+       
+} 
+
+
+@media only screen and (min-width:768px) and (max-width:819px){
+  
+ .section .product-deal-content{
+    margin-left: 75px!important;
+
+ }
+ .row figure figcaption{
+    font-size: 12px !important;
+    font-weight: 800!important;
+    color: black!important;
+    line-height: 1.5!important;
+    position: absolute!important;
+    top:53px!important;
+    left: 13px!important;
+    }
+    .footer2-section .col-lg-2{
+        margin-top:30px!important;
+        
+      }
+      .sec-con{
+        margin-top:-65px;
+        margin-bottom:-48px;
+  }
+  .page-title-section .carousel .carousel-inner .carousel-item img
+  { height: 200px !important;
+   max-width: 100%;
+}
+}
+
+@media only screen and (min-width:300px) and (max-width:767px) {
+    .page-title-section .carousel .carousel-inner .carousel-item img
+       { height: 200px !important;
+        max-width: 100%;
+    }
+    .mbl-brand{
+        margin-bottom: 0 !important;
+    }
+    .mbl-brand div{
+        display: flex;
+        justify-content: center;
+        margin-bottom:5px;
+    }
+    .section h3{
+        font-size: 17px;
+
+    }
+    .row figure figcaption{
+    font-size: 14px!important;
+    font-weight: 800!important;
+    color: black!important;
+    line-height: 1.5!important;
+    position: absolute!important;
+    top:88px!important;
+    left: 29px!important;
+    }
+    .widget-about img{
+        max-width: 60%;
+    }
+    .sec-con{
+        margin-top:-65px;
+        margin-bottom:-48px;
+  }
+  .footer2-section .col-lg-2{
+    margin-top:30px!important;
+    
+  }
+  
+
+}

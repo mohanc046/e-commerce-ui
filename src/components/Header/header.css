@@ -1,0 +1,25 @@
+.desktopHeaderContainer {
+  justify-content: space-between;
+}
+
+.defaultFontSize {
+  font-size: 31px;
+}
+
+.desktopMenuTitleStyle {
+  font-size: 15px;
+  color: #1ca1d9;
+}
+
+.desktopStickyContainer {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.paddingLeft13{
+  padding-left:13px;
+}
+
+.fontSize16 {
+  font-size: 16px;
+}
