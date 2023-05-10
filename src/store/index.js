@@ -41,7 +41,7 @@ const store = createStore(
 
         isCategoryLoading: false,
 
-        isProductListLoading : false,
+        isProductListLoading: false,
 
         refreshToPullUpdate: true,
 
@@ -53,11 +53,17 @@ const store = createStore(
 
         category2: [],
 
+        filteredCategory2List: [],
+
+        catalogueList: [],
+
         searchText: "",
 
         selectedPrimaryCategory: {},
-        
+
         selectedSecondaryCategory: {},
+
+        selectedCatalogueName: "",
 
         pricingList: FIXED_VALUES.PRICING_LIST,
 
@@ -89,12 +95,12 @@ const store = createStore(
 
           let categoryListResponse = await axios.get(`https://e-commerce-service-oz66.onrender.com/api/categoryInfo`);
 
-          const { data: { statusCode = "500", category1 = [], category2 = [] } } = categoryListResponse;
+          const { data: { statusCode = "500", category1 = [], category2 = [], catalogueList = [] } } = categoryListResponse;
 
           if (statusCode === STATUS_CODE.SUCCESS) {
 
             actions.updateStore({
-              category1, category2,
+              category1, category2, catalogueList,
               selectedPrimaryCategory: {},
               selectedSecondaryCategory: {},
               productList: [],
@@ -128,10 +134,12 @@ const store = createStore(
             searchText,
             primaryCategory,
             secondaryCategory,
-            selectedPricing
+            selectedPricing,
+            selectedCatalogueName
           } = payload;
 
-          if ([primaryCategory, secondaryCategory, searchText, selectedPricing].every(item => _.isEmpty(item))) {
+
+          if ([primaryCategory, secondaryCategory, searchText, selectedPricing, selectedCatalogueName].every(item => _.isEmpty(item))) {
 
             notification.open({ type: "warning", description: "Choose/enter valid option to download catalog." })
 

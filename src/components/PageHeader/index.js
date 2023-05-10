@@ -8,10 +8,10 @@ export const PageHeader = () => {
         <div class="row">
           <div class="col">
             <div class="page-title">
-              <h1 class="title">Contact us</h1>
+              <h1 class="title">Catalogue</h1>
               <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Contact us</li>
+                <li class="breadcrumb-item"><a href="http://newsource.in/">Home</a></li>
+                <li class="breadcrumb-item active">Catalogue</li>
               </ul>
             </div>
 

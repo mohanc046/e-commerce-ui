@@ -16,6 +16,8 @@ export const Home = () => {
 
   const category2 = downloadReportDataStore.data.category2;
 
+  const catalogueList = downloadReportDataStore.data.catalogueList;
+
   const selectedPrimaryCategory = downloadReportDataStore.data.selectedPrimaryCategory;
 
   const selectedSecondaryCategory = downloadReportDataStore.data.selectedSecondaryCategory;
@@ -30,7 +32,11 @@ export const Home = () => {
 
   const selectedPricing = downloadReportDataStore.data.selectedPricing;
 
+  const filteredCategory2List = downloadReportDataStore.data.filteredCategory2List;
+
   const searchText = downloadReportDataStore.data.searchText;
+
+  const selectedCatalogueName = downloadReportDataStore.data.selectedCatalogueName;
 
   const dropDownButtonOption = downloadReportDataStore.data.dropDownButtonOption;
 
@@ -119,11 +125,17 @@ export const Home = () => {
                     <ul class="dropdown-menu" >
                       {
                         category1.map(item => <li><a class="dropdown-item" onClick={() => {
+
+                          let uniqueId = _.get(item, 'S_no', '');
+
+                          let filteredCategory2List = category2.filter(list => list.primaryCategory == uniqueId)
+
                           updateStore({
                             selectedPrimaryCategory: {
-                              value: _.get(item, 'S_no', ''),
+                              value: uniqueId,
                               label: _.get(item, 'Category1', '')
-                            }
+                            },
+                            filteredCategory2List
                           })
                         }
                         }>
@@ -135,14 +147,14 @@ export const Home = () => {
               </div>
             </div>
 
-            <div class="col-md-4 mb-md-70 mb-sm-70">
+            {(!_.isEmpty(selectedPrimaryCategory)) && (<div class="col-md-4 mb-md-70 mb-sm-70">
               <div class="single-icon-box mb-10">
                 <div class="icon-box-content">
                   <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle categoryButtonStyle" type="button" data-toggle="dropdown" > {_.get(selectedSecondaryCategory, 'label', 'catagory 2')}</button>
                     <ul class="dropdown-menu" >
                       {
-                        category2.map(item => <li><a class="dropdown-item" onClick={() => {
+                        filteredCategory2List.map(item => <li><a class="dropdown-item" onClick={() => {
                           updateStore({
                             selectedSecondaryCategory: {
                               value: _.get(item, 'S.No', ''),
@@ -157,7 +169,9 @@ export const Home = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div>)
+            }
+
           </>
           )}
 
@@ -190,12 +204,41 @@ export const Home = () => {
             </div>)
           }
 
+          {(visibilityConditionCheck === 5) && (
+            <div class="col-md-4 mb-md-70 mb-sm-70">
+              <div class="single-icon-box">
+                <div class="icon-box-icon">
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-primary dropdown-toggle categoryButtonStyle"
+                      type="button"
+                      data-toggle="dropdown"
+                    >
+                      {_.isEmpty(selectedCatalogueName) ? 'Catalogue Name' : selectedCatalogueName}
+                    </button>
+                    <ul class="dropdown-menu">
+                      {
+                        catalogueList.map(item => <li>
+                          <a class="dropdown-item" onClick={() => {
+                            updateStore({ selectedCatalogueName: item })
+                          }}
+                          >
+                            {item}
+                          </a></li>)
+                      }
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>)
+          }
+
         </div>
       </div>
     </div>
 
 
-    {(visibilityConditionCheck === 4 || visibilityConditionCheck === 5) && (
+    {(visibilityConditionCheck === 4) && (
       <div class="box-layout-map-area mb-100">
         <div class="container">
           <div class="col-lg-12 marginTop90">
@@ -239,7 +282,7 @@ export const Home = () => {
                   selectedPricing,
                   searchText,
                   isProductSearch: visibilityConditionCheck === 4,
-                  isCategorySearch: visibilityConditionCheck === 5,
+                  selectedCatalogueName
                 })
               }}
             >
