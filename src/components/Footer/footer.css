@@ -1,7 +1,13 @@
 .footerContainer {
   padding-bottom: 20px;
+  margin-top: 2%;
 }
 
 .widgetListContainer {
   margin-top: 30px;
+}
+
+.scrollUIContainer {
+  position: fixed;
+  z-index: 2147483647;
 }

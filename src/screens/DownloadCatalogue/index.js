@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import _ from 'lodash';
-import { Footer } from '../Footer';
-import { Header } from '../Header';
-import { PageHeader } from '../PageHeader';
+import { Footer } from '../../components/Footer';
+import { Header } from '../../components/Header';
+import { PageHeader } from '../../components/PageHeader';
 import { useStoreActions, useStoreState } from '../../store/hooks';
-import './home.css';
 import ProductTemplate from './ProductTemplate';
-import { Spinner } from '../Loader/Spinner';
+import { Spinner } from '../../components/Loader/Spinner';
+import './downloadCatalogue.css';
 
-export const Home = () => {
+export const DownloadCatalogue = () => {
 
   let downloadReportDataStore = useStoreState(state => state.downloadReport);
 

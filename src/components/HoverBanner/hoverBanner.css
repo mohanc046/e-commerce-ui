@@ -1,0 +1,26 @@
+.figContainer {
+  max-width: 1414px;
+}
+
+.figOuterContainer {
+  position: relative;
+}
+
+.figCaptionContainer {
+  font-size: 23px;
+  font-weight: 800;
+  color: black;
+  line-height: 1.5;
+  position: absolute;
+  top: 105px;
+  left: 30px;
+}
+
+.figButtonStyle {
+  background-color: #091213;
+  color: white;
+  line-height: 1.5;
+  font-family: monospace;
+  border: none;
+  border-radius: 12% !important;
+}

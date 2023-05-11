@@ -51,6 +51,11 @@ export const Footer = () => {
                     <p class="copyright text-center">&copy; 2022 New Source Hub. All Rights Reserved</p>
                 </div>
             </div>
+
+            <a id="scrollUp" href="#top" class="scrollUIContainer">
+                <i class="fal fa-long-arrow-up">
+                </i>
+            </a>
         </>
     )
 }

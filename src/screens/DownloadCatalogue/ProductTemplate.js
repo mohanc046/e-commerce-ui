@@ -4,7 +4,7 @@ const ProductTemplate = (props) => {
 
   const { productList = [] } = props;
 
-  var updatedProductList = _.chunk(productList, 2);
+  let updatedProductList = _.chunk(productList, 2);
 
   const styles = {
     page: {

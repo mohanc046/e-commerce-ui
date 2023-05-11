@@ -13,7 +13,7 @@ export const Header = () => {
                         {/* <!-- Header Logo Start --> */}
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="http://newsource.in/">
+                                <a href="/home">
                                     <img src="assets/images/logo/logo-nsh.png" class="img-fluid" alt="NewsourceHub" />
                                 </a>
                             </div>
@@ -338,7 +338,7 @@ export const Header = () => {
                                             <li class=""><a href="#"><span class="menu-text">BAGS</span></a> </li>
                                             <li class=""><a href="#"><span class="menu-text">HOME ANG LIVING</span></a> </li>
                                             <li class=""><a href="#"><span class="menu-text">FASHION</span></a></li>
-                                            <li class=""><a href="#"><span class="menu-text">DOWNLOAD CATALOGUE</span></a></li>
+                                            <li class=""><a href="/download-catalogue"><span class="menu-text">DOWNLOAD CATALOGUE</span></a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -606,7 +606,7 @@ export const Header = () => {
                                         <li class=""><a href="#"><span class="menu-text">BAGS</span></a> </li>
                                         <li class=""><a href="#"><span class="menu-text">HOME ANG LIVING</span></a> </li>
                                         <li class=""><a href="#"><span class="menu-text">FASHION</span></a></li>
-                                        <li class=""><a href="#"><span class="menu-text">DOWNLOAD CATALOGUE</span></a></li>
+                                        <li class=""><a href="/download-catalogue"><span class="menu-text">DOWNLOAD CATALOGUE</span></a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -872,7 +872,7 @@ export const Header = () => {
                                             <li class=""><a href="#"><span class="menu-text">BAGS</span></a> </li>
                                             <li class=""><a href="#"><span class="menu-text">HOME ANG LIVING</span></a> </li>
                                             <li class=""><a href="#"><span class="menu-text">FASHION</span></a></li>
-                                            <li class=""><a href="#"><span class="menu-text">DOWNLOAD CATALOGUE</span></a></li>
+                                            <li class=""><a href="/download-catalogue"><span class="menu-text">DOWNLOAD CATALOGUE</span></a></li>
                                         </ul>
                                     </nav>
                                 </div>

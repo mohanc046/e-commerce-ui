@@ -1,0 +1,11 @@
+.productListTitleContainer {
+  font-family: monospace
+}
+
+.defaultProductContainerStyle {
+  margin-bottom: 10px;
+}
+
+.productSectionContainer {
+  max-width: 1414px;
+}
