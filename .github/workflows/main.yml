@@ -28,11 +28,11 @@ jobs:
         exclude: |
            **/.git*
            **/.git*/**
-           **/node_modules/**
-           **/.github/**
-           **/src/**
-           **/.firebase/**
-           **/public/**
+           node_modules/**
+           .firebase/**
+           public/**
+           .github/**
+           src/**
            .firebaserc
            .gitattributes
            .gitignore
