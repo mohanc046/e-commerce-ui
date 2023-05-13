@@ -23,5 +23,5 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ftp.newsourcehub.com
-        username: github046
+        username: mohan046@newsourcehub.com
         password: Ripplemind@1234
