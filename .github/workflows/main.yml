@@ -25,17 +25,17 @@ jobs:
         server: newsourcehub.com
         username: mohan046@newsourcehub.com
         password: Ripplemind@1234
+        dry-run: true
         exclude: |
-           **/.git*
-           **/.git*/**
-           node_modules/**
-           .firebase/**
-           public/**
-           .github/**
-           src/**
-           .firebaserc
-           .gitattributes
-           .gitignore
-           firebase.json
-           package-lock.json
-           package.json
+          node_modules/**
+          .firebase/**
+          public/**
+          .github/**
+          src/**
+          .firebaserc
+          .gitattributes
+          .gitignore
+          firebase.json
+          package-lock.json
+          package.json
+
