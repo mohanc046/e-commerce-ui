@@ -19,9 +19,9 @@ jobs:
     - name: 🔨  Building the project
       run: npm run build
     
-    - name: 📂 Sync files
+    - name: 📂 FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        server: ftp.newsourcehub.com
-        username: mohan046@newsourcehub.com
-        password: Ripplemind@1234
+        server: ${{ secrets.FTP_ACCESS_SECRET }}
+        username: ${{ secrets.FTP_USER_NAME }}
+        password: ${{ secrets.FTP_ACCESS_SECRET }}
