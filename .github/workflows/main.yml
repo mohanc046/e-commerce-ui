@@ -20,7 +20,7 @@ jobs:
       run: npm run build
     
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.0.0
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
         server: ftp.newsourcehub.com
         username: mohan046@newsourcehub.com
