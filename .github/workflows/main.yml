@@ -22,6 +22,6 @@ jobs:
     - name: 📂 FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        server: ${{ secrets.FTP_ACCESS_SECRET }}
-        username: ${{ secrets.FTP_USER_NAME }}
-        password: ${{ secrets.FTP_ACCESS_SECRET }}
+        server: newsourcehub.com
+        username: mohan046@newsourcehub.com
+        password: Ripplemind@1234
