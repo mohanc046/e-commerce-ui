@@ -33,6 +33,58 @@ const encryption = encryptTransform({
 const store = createStore(
   persist({
 
+    headerInfo: {
+
+      data: {
+
+        isLoaderStatus: false,
+
+        menuList: []
+      },
+
+      getStoreDetails: action((state, payload) => {
+
+        return _.get(state, 'data')
+
+      }),
+
+      updateStore: action((state, payload) => {
+
+        _.update(state, 'data', () => { return { ...state.data, ...payload } })
+
+      }),
+
+      fetchMenuInfo: thunk(async (actions, payload) => {
+
+        try {
+
+          actions.updateStore({ isLoaderStatus: true });
+
+          let menuListResponse = await axios.get(`https://nsh-server.onrender.com/api/category/getAllCategory`);
+
+          const { data: { statusCode = "500", menuList = [] } } = menuListResponse;
+
+          if (statusCode === STATUS_CODE.SUCCESS) {
+
+            actions.updateStore({ menuList })
+
+          } else {
+
+            notification.open({ type: "warning", description: "Facing issue while getting menu information!" })
+
+          }
+        } catch (error) {
+
+          console.log("Error while getting menu details ", error);
+
+        } finally {
+
+          actions.updateStore({ isLoaderStatus: false })
+
+        }
+      })
+    },
+
     downloadReport: {
 
       data: {
@@ -93,7 +145,7 @@ const store = createStore(
 
           actions.updateStore({ isCategoryLoading: true });
 
-          let categoryListResponse = await axios.get(`https://e-commerce-service-oz66.onrender.com/api/categoryInfo`);
+          let categoryListResponse = await axios.get(`https://nsh-server.onrender.com/api/categoryInfo`);
 
           const { data: { statusCode = "500", category1 = [], category2 = [], catalogueList = [] } } = categoryListResponse;
 
@@ -148,7 +200,7 @@ const store = createStore(
 
           actions.updateStore({ isProductListLoading: true });
 
-          let categoryListResponse = await axios.post(`https://e-commerce-service-oz66.onrender.com/api/productList`, payload);
+          let categoryListResponse = await axios.post(`https://nsh-server.onrender.com/api/productList`, payload);
 
           const { data: { statusCode = "500", productList = [] } } = categoryListResponse;
 
