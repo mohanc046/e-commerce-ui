@@ -30,15 +30,14 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/**
-          node_modules/*
-          .firebase/*
-          public/**
-          .github/**
-          src/**
-          .firebaserc
-          .gitattributes
-          .gitignore
-          firebase.json
-          package-lock.json
-          package.json
+          **/.firebase/**
+          **/public/**
+          **/.github/**
+          **/src/**
+          **/.firebaserc
+          **/.gitattributes
+          **/.gitignore
+          **/firebase.json
+          **/package-lock.json
+          **/package.json
 
