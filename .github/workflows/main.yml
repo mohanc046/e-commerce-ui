@@ -32,9 +32,9 @@ jobs:
           **/node_modules/**
           node_modules/*
           .firebase/*
-          public/*
-          .github/*
-          src/*
+          public/**
+          .github/**
+          src/**
           .firebaserc
           .gitattributes
           .gitignore
