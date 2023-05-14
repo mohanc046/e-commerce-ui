@@ -25,20 +25,5 @@ jobs:
         server: newsourcehub.com
         username: mohan046@newsourcehub.com
         password: Ripplemind@1234
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/.git/**
-          **/node_modules/**
-          **/.firebase/**
-          **/public/**
-          **/.github/**
-          **/src/**
-          **/.firebaserc
-          **/.gitattributes
-          **/.gitignore/**
-          **firebase.json
-          **package-lock.json
-          **package.json
+        local-dir	: public/
         dry-run: true
-
