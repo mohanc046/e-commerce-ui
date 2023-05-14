@@ -1,4 +1,5 @@
 export const FIXED_VALUES = {
+  CURRENCY: '₹',
   PRICING_LIST: [
     {
       min: "0",
@@ -30,5 +31,59 @@ export const FIXED_VALUES = {
       max: "10000",
       label: "5000 - 10000"
     }
+  ],
+  SORTING_OPTIONS: [
+    {
+      title: 'Default Sorting',
+      value: 'menu_order"',
+      selected: true,
+    },
+    {
+      title: 'Sort By Popularity',
+      filter: 'popularity',
+      selected: false,
+    },
+    {
+      title: 'Sort By Average Rating',
+      filter: 'rating',
+      selected: false,
+    },
+    {
+      title: 'Sort By Latest',
+      filter: 'date',
+      selected: false,
+    },
+    {
+      title: 'Sort By price: low to high',
+      filter: 'price',
+      selected: false,
+    },
+    {
+      title: 'Sort By price: high to low',
+      filter: 'price-desc',
+      selected: false,
+    },
+  ],
+  FILTER_OPTIONS: [
+    {
+      title: 'All',
+      filter: '*',
+      selected: true,
+    },
+    {
+      title: 'Hot Products',
+      filter: 'featured',
+      selected: false,
+    },
+    {
+      title: 'New Products',
+      filter: 'new',
+      selected: false,
+    },
+    {
+      title: 'Sales Products',
+      filter: 'sales',
+      selected: false,
+    },
   ]
 }

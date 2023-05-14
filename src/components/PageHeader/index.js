@@ -1,6 +1,8 @@
 import './pageHeader.css';
 
-export const PageHeader = () => {
+export const PageHeader = (props) => {
+  const { title, activeItem } = props
+
   return <>
     {/* <!-- Page Title/Header Start --> */}
     <div class="page-title-section section backgroundImage">
@@ -8,10 +10,10 @@ export const PageHeader = () => {
         <div class="row">
           <div class="col">
             <div class="page-title">
-              <h1 class="title">Catalogue</h1>
+              <h1 class="title">{title}</h1>
               <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                <li class="breadcrumb-item active">Catalogue</li>
+                <li class="breadcrumb-item active">{activeItem}</li>
               </ul>
             </div>
 
