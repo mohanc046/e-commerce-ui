@@ -25,7 +25,6 @@ jobs:
         server: newsourcehub.com
         username: mohan046@newsourcehub.com
         password: Ripplemind@1234
-        dry-run: true
         exclude: |
           **/.git*
           **/.git*/**
@@ -41,4 +40,5 @@ jobs:
           **firebase.json
           **package-lock.json
           **package.json
+        dry-run: true
 
