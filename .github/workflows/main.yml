@@ -13,11 +13,11 @@ jobs:
 
     - uses: actions/setup-node@master
 
-    - name: Installing project dependencies
-      run: npm install
+    # - name: Installing project dependencies
+    #   run: npm install
 
-    - name: 🔨  Building the project
-      run: npm run build
+    # - name: 🔨  Building the project
+    #   run: npm run build
     
     - name: 📂 FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -27,11 +27,14 @@ jobs:
         password: Ripplemind@1234
         dry-run: true
         exclude: |
-          node_modules/**
-          .firebase/**
-          public/**
-          .github/**
-          src/**
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          node_modules/*
+          .firebase/*
+          public/*
+          .github/*
+          src/*
           .firebaserc
           .gitattributes
           .gitignore
