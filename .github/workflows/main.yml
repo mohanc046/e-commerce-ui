@@ -13,11 +13,11 @@ jobs:
 
     - uses: actions/setup-node@master
 
-    # - name: Installing project dependencies
-    #   run: npm install
+    - name: Installing project dependencies
+      run: npm install
 
-    # - name: 🔨  Building the project
-    #   run: npm run build
+    - name: 🔨  Building the project
+      run: npm run build
     
     - name: 📂 FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -25,5 +25,4 @@ jobs:
         server: newsourcehub.com
         username: mohan046@newsourcehub.com
         password: Ripplemind@1234
-        local-dir	: public/
-        dry-run: true
+        local-dir	: build/
