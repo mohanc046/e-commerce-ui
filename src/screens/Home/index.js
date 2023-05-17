@@ -15,53 +15,53 @@ export const Home = () => {
       [
         {
           imagePath: "assets/images/brand/12product/american-Tourister.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/12product/arrow.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/12product/borocell.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/12product/Google-Products.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/12product/Us-polo.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/12product/Boat.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         }
       ],
       [
         {
           imagePath: "assets/images/brand/12product/noise.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/12product/wild-craft.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/12product/amazon-devices.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/12product/sony.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/12product/jbl.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/12product/portronics.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         }
       ]
     ]
@@ -73,27 +73,27 @@ export const Home = () => {
       [
         {
           imagePath: "assets/images/brand/t-shirts.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/scott.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/zebronics.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/Mark & Spencer.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/Boat.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         },
         {
           imagePath: "assets/images/brand/Levis.jpg",
-          redirectTo: "#"
+          redirectTo: '/products'
         }
       ]
     ]
@@ -103,19 +103,19 @@ export const Home = () => {
     [
       {
         name: "Color palattle",
-        redirectTo: "#",
+        redirectTo: '/products',
         imagePath: "assets/images/slider/home14/banner.jpg",
         buttonLabel: "shop now"
       },
       {
         name: "Bags",
-        redirectTo: "#",
+        redirectTo: '/products',
         imagePath: "assets/images/slider/home14/banner2.jpg",
         buttonLabel: "shop now"
       },
       {
         name: "water bottle",
-        redirectTo: "#",
+        redirectTo: '/products',
         imagePath: "assets/images/slider/home14/banner3.jpg",
         buttonLabel: "shop now"
       }

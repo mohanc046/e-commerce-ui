@@ -18,7 +18,7 @@ export const HoverBanner = (props) => {
                 <figure class="single-category__image single-category__image--three single-category__image--three--creativehome single-category__image--three--banner figOuterContainer">
                   <img src={item.imagePath} class="img-fluid" alt="" />
                   <figcaption class="title figCaptionContainer">
-                    <p><a href="#">{item.name}</a></p>
+                    <p><a href={item.redirectTo}>{item.name}</a></p>
                     <button class="figButtonStyle"><a href={item.redirectTo}>shop now</a></button>
                   </figcaption>
                 </figure>

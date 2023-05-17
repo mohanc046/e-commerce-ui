@@ -27,11 +27,11 @@ export const Header = () => {
             {menuList.map(item => <li class="has-children"><a href="#"><span class="menu-text">{item.menuName}</span></a>
                 <ul class="sub-menu mega-menu fontSize16">
                     {_.get(item, 'subSectionInfo', []).map(list => <li>
-                        <a href="#" class="mega-menu-title"><span class="menu-text"><h6 class="desktopMenuTitleStyle" >{list.primaryCategoryName}</h6></span></a>
+                        <a href="/products" class="mega-menu-title"><span class="menu-text"><h6 class="desktopMenuTitleStyle" >{list.primaryCategoryName}</h6></span></a>
                         <ul>
                             {
                                 _.get(list, 'subSection', []).map(entry => <li>
-                                    <a href="elements-products.html">
+                                    <a href="/products">
                                         <span class="menu-text">
                                             {entry.subCategoryName}
                                         </span>

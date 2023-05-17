@@ -17,7 +17,7 @@ export const DealCard = () => {
                         <p>Years of experience brought about by our skilled craftsmen could ensure that every piece produced is a work of art. Our focus is always the best quality possible.</p>
                     </div>
                     <div class="countdown1" data-countdown="2022/01/01"><div class="count"><span class="amount">0</span><span class="period">Days</span></div><div class="count"><span class="amount">0</span><span class="period">Hours</span></div><div class="count"><span class="amount">0</span><span class="period">Minutes</span></div><div class="count"><span class="amount">0</span><span class="period">Seconds</span></div></div>
-                    <a href="shop.html" class="btn btn-dark btn-hover-primary">Shop Now</a>
+                    <a href="/products" class="btn btn-dark btn-hover-primary">Shop Now</a>
                 </div>
             </div>
 
