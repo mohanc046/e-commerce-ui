@@ -1,15 +1,62 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './productFilter.css'
 import { FIXED_VALUES } from '../../utils/constants'
 import { MOCK_DATA } from '../../utils/mock'
+import { getOnSaleRate } from '../../utils/index'
 import { ProductCard } from '../ProductCard'
+import { useStoreActions, useStoreState } from '../../store/hooks';
 
 export const ProductFilter = () => {
 
-    const [filters, setFilters] = useState(FIXED_VALUES.FILTER_OPTIONS)
+    let productDataStore = useStoreState(state => state.products);
 
+    const productList = productDataStore.data.productList;
+
+    const isProductListLoading = productDataStore.data.isProductListLoading;
+
+    const sortBy = productDataStore.data.sortBy;
+    const offset = productDataStore.data.offset;
+    const count = productDataStore.data.count;
+    const minPrice = productDataStore.data.minPrice;
+    const maxPrice = productDataStore.data.maxPrice;
+    const search = productDataStore.data.search;
+    const selectedCataory = productDataStore.data.selectedCataory;
+
+
+    const [filters, setFilters] = useState(FIXED_VALUES.FILTER_OPTIONS)
     const [sortOptions, setSortOptions] = useState(FIXED_VALUES.SORTING_OPTIONS)
     const [products, setProducts] = useState(MOCK_DATA.PRODUCTS)
+
+    let fetchProductList = useStoreActions(action => action.products.fetchProductList);
+
+    let updateStore = useStoreActions(action => action.products.updateStore);
+
+    const loadMore = () => {
+        updateStore({
+            offset: offset + 1,
+        })
+    }
+
+    useEffect(() => {
+        fetchProductList({
+            offset,
+            count,
+            sortBy,
+            minPrice,
+            maxPrice,
+            search,
+        })
+    }, [offset])
+
+    useEffect(() => {
+        updateStore({
+            offset: 0,
+        })
+    }, [])
+
+    useEffect(() => {
+        setProducts(productList);
+    }, [productList])
 
     return (
         <>
@@ -151,12 +198,16 @@ export const ProductFilter = () => {
                                     {/* <div class="grid-sizer col-1"></div> */}
                                     {
                                         products.map((item) => {
-                                            return <ProductCard product={item} />
+                                            return <ProductCard product={{
+                                                ...item,
+                                                isOutOfStock: item.stock <= 0,
+                                                onsale: getOnSaleRate(item),
+                                            }} />
                                         })
                                     }
                                 </div>
                                 <div class="text-center learts-mt-70">
-                                    <a href="#" class="btn btn-dark btn-outline-hover-dark"><i class="ti-plus"></i>More</a>
+                                    <button onClick={loadMore} class="btn btn-dark btn-outline-hover-dark"><i class="ti-plus"></i>More</button>
                                 </div>
                             </div>
                             {/* Products List End */}

@@ -176,6 +176,97 @@ const store = createStore(
       })
     },
 
+    products: {
+      data: {
+
+        isLoaderStatus: false,
+
+        isProductListLoading: false,
+
+        refreshToPullUpdate: true,
+
+        isModalEnabled: false,
+
+        sortBy: "",
+
+        minPrice: 0,
+
+        maxPrice: 0,
+
+        offset: 0,
+
+        search: "",
+
+        count: FIXED_VALUES.DEFAULT_PAGINATION_COUNT,
+
+        selectedCataory: "",
+
+        productList: [],
+
+      },
+
+      getStoreDetails: action((state, payload) => {
+
+        return _.get(state, 'data')
+
+      }),
+
+      updateStore: action((state, payload) => {
+
+        _.update(state, 'data', () => { return { ...state.data, ...payload } })
+
+      }),
+
+
+
+      fetchProductList: thunk(async (actions, payload) => {
+
+        try {
+
+          const {
+            offset,
+            count
+          } = payload;
+
+          console.log(payload)
+
+          if ([offset, count].every(item => _.isUndefined(item))) {
+
+            notification.open({ type: "warning", description: "Invalid Data given!" })
+
+            return;
+          }
+
+          actions.updateStore({ isProductListLoading: true });
+
+          let productListReponse = await axios.post(`http://localhost:3006/api/product/getActiveProducts`, payload);
+
+          console.log(productListReponse)
+
+          const { data: { statusCode = "500", products = [] } } = productListReponse;
+
+
+          if (statusCode === STATUS_CODE.SUCCESS) {
+
+            actions.updateStore({ productList: [...products] });
+
+          } else {
+
+            notification.open({ type: "warning", description: "Error while getting product list!" })
+
+          }
+        } catch (error) {
+
+          console.log("Error while getting product list!", error);
+
+        } finally {
+
+          actions.updateStore({ isProductListLoading: false })
+
+        }
+      })
+    }
+
   },
     {
       version: 1,

@@ -1,5 +1,6 @@
 export const FIXED_VALUES = {
   CURRENCY: '₹',
+  DEFAULT_PAGINATION_COUNT: 10,
   PRICING_LIST: [
     {
       min: "0",
@@ -35,33 +36,27 @@ export const FIXED_VALUES = {
   SORTING_OPTIONS: [
     {
       title: 'Default Sorting',
-      value: 'menu_order"',
-      selected: true,
+      value: '',
     },
     {
       title: 'Sort By Popularity',
       filter: 'popularity',
-      selected: false,
     },
     {
       title: 'Sort By Average Rating',
-      filter: 'rating',
-      selected: false,
+      filter: 'average_rating',
     },
     {
       title: 'Sort By Latest',
-      filter: 'date',
-      selected: false,
+      filter: 'latest',
     },
     {
       title: 'Sort By price: low to high',
-      filter: 'price',
-      selected: false,
+      filter: 'price_low_to_high',
     },
     {
       title: 'Sort By price: high to low',
-      filter: 'price-desc',
-      selected: false,
+      filter: 'price_high_to_low',
     },
   ],
   FILTER_OPTIONS: [
