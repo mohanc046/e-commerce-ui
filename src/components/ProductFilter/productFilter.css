@@ -1,3 +1,7 @@
 .rate {
     width: 80px;
 }
+
+.selected_category {
+    color: '#ff0000'
+}

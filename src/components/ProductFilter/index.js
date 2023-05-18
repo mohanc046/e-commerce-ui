@@ -5,6 +5,7 @@ import { MOCK_DATA } from '../../utils/mock'
 import { getOnSaleRate } from '../../utils/index'
 import { ProductCard } from '../ProductCard'
 import { useStoreActions, useStoreState } from '../../store/hooks';
+import _ from 'lodash';
 
 export const ProductFilter = () => {
 
@@ -16,16 +17,20 @@ export const ProductFilter = () => {
 
     const sortBy = productDataStore.data.sortBy;
     const offset = productDataStore.data.offset;
-    const count = productDataStore.data.count;
     const minPrice = productDataStore.data.minPrice;
     const maxPrice = productDataStore.data.maxPrice;
     const search = productDataStore.data.search;
     const selectedCataory = productDataStore.data.selectedCataory;
+    const categoryCount = productDataStore.data.categoryCount;
 
 
+    const [searchText, setSearchText] = useState('')
     const [filters, setFilters] = useState(FIXED_VALUES.FILTER_OPTIONS)
     const [sortOptions, setSortOptions] = useState(FIXED_VALUES.SORTING_OPTIONS)
     const [products, setProducts] = useState(MOCK_DATA.PRODUCTS)
+    const [category, setCategory] = useState('All')
+    const [columns, setColumns] = useState(4)
+    const [categoryList, setCategoryList] = useState({})
 
     let fetchProductList = useStoreActions(action => action.products.fetchProductList);
 
@@ -35,28 +40,77 @@ export const ProductFilter = () => {
         updateStore({
             offset: offset + 1,
         })
-    }
 
-    useEffect(() => {
         fetchProductList({
-            offset,
-            count,
             sortBy,
             minPrice,
             maxPrice,
             search,
         })
-    }, [offset])
+    }
+
+    const applySort = async (value) => {
+        console.log(value)
+        await updateStore({
+            offset: 0,
+            sortBy: value,
+        })
+
+        fetchProductList({
+            sortBy: value,
+            minPrice,
+            maxPrice,
+            search,
+        })
+    }
+
+    const onSearch = async () => {
+        console.log(searchText)
+        await updateStore({
+            offset: 0,
+            search: searchText,
+        })
+
+        fetchProductList({
+            sortBy,
+            minPrice,
+            maxPrice,
+            search: searchText,
+        })
+    }
+
+    const selectCatagory = async () => {
+        if (category != null && category != 'All') {
+            setProducts(_.filter(productList, (item) => item.category_name === category))
+        } else {
+            setProducts(productList)
+        }
+    }
 
     useEffect(() => {
-        updateStore({
-            offset: 0,
+        fetchProductList({
+            sortBy,
+            minPrice,
+            maxPrice,
+            search,
         })
     }, [])
 
     useEffect(() => {
         setProducts(productList);
     }, [productList])
+
+    useEffect(() => {
+        selectCatagory();
+    }, [category])
+
+    useEffect(() => {
+        setCategoryList(categoryCount);
+    }, [categoryCount])
+
+    useEffect(() => {
+        console.log(columns)
+    }, [columns])
 
     return (
         <>
@@ -78,10 +132,10 @@ export const ProductFilter = () => {
                                 <ul class="shop-toolbar-controls">
                                     <li>
                                         <div class="product-sorting">
-                                            <select class="nice-select">
+                                            <select class="nice-select" onChange={(e) => applySort(e.target.value)}>
                                                 {
                                                     sortOptions.map((item) => {
-                                                        return <option value={item.value} selected={item.selected ? "selected" : ""}>{item.title}</option>
+                                                        return <option value={item.filter} selected={item.selected ? "selected" : ""}>{item.title}</option>
                                                     })
                                                 }
                                             </select>
@@ -89,14 +143,14 @@ export const ProductFilter = () => {
                                     </li>
                                     <li>
                                         <div class="product-column-toggle d-none d-xl-flex">
-                                            <button class="toggle hintT-top" data-hint="5 Column" data-column="5"><i class="ti-layout-grid4-alt"></i></button>
-                                            <button class="toggle active hintT-top" data-hint="4 Column" data-column="4"><i class="ti-layout-grid3-alt"></i></button>
-                                            <button class="toggle hintT-top" data-hint="3 Column" data-column="3"><i class="ti-layout-grid2-alt"></i></button>
+                                            <button class="toggle hintT-top" data-hint="5 Column" data-column="5" onClick={(e) => setColumns(5)}><i class="ti-layout-grid4-alt"></i></button>
+                                            <button class="toggle active hintT-top" data-hint="4 Column" data-column="4" onClick={(e) => setColumns(4)}><i class="ti-layout-grid3-alt"></i></button>
+                                            <button class="toggle hintT-top" data-hint="3 Column" data-column="3" onClick={(e) => setColumns(3)}><i class="ti-layout-grid2-alt"></i></button>
                                         </div>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <a class="product-filter-toggle" href="#product-filter">Filters</a>
-                                    </li>
+                                    </li> */}
 
                                 </ul>
                             </div>
@@ -141,13 +195,18 @@ export const ProductFilter = () => {
                             <div class="col learts-mb-30">
                                 <h3 class="widget-title product-filter-widget-title">Categories</h3>
                                 <ul class="widget-list product-filter-widget customScroll">
-                                    <li><a href="#">Gift ideas</a> <span class="count">16</span></li>
+                                    {/* {
+                                        _.keys(categoryCount).map((item) => {
+                                            return <li><button>{item}</button><span class="count">categoryCount[item]</span></li>
+                                        })
+                                    } */}
+                                    {/* <li><a href="#">Gift ideas</a> <span class="count">16</span></li>
                                     <li><a href="#">Home Decor</a> <span class="count">16</span></li>
                                     <li><a href="#">Kids &amp; Babies</a> <span class="count">6</span></li>
                                     <li><a href="#">Kitchen</a> <span class="count">15</span></li>
                                     <li><a href="#">Kniting &amp; Sewing</a> <span class="count">4</span></li>
                                     <li><a href="#">Pots</a> <span class="count">4</span></li>
-                                    <li><a href="#">Toys</a> <span class="count">6</span></li>
+                                    <li><a href="#">Toys</a> <span class="count">6</span></li> */}
                                 </ul>
                             </div>
                             {/* <!-- Categories End --> */}
@@ -194,7 +253,7 @@ export const ProductFilter = () => {
                         <div class="row learts-mb-n50">
                             {/* Products List*/}
                             <div class="col-lg-9 col-12 learts-mb-50 order-lg-2">
-                                <div id="shop-products" class="products isotope-grid row row-cols-xl-4 row-cols-md-3 row-cols-sm-2 row-cols-1">
+                                <div id="shop-products" class={`products isotope-grid row row-cols-xl-${columns} row-cols-md-3 row-cols-sm-2 row-cols-1`}>
                                     {/* <div class="grid-sizer col-1"></div> */}
                                     {
                                         products.map((item) => {
@@ -202,6 +261,7 @@ export const ProductFilter = () => {
                                                 ...item,
                                                 isOutOfStock: item.stock <= 0,
                                                 onsale: getOnSaleRate(item),
+                                                className: `product_image_${columns}`
                                             }} />
                                         })
                                     }
@@ -218,8 +278,8 @@ export const ProductFilter = () => {
                                 <div class="single-widget learts-mb-40">
                                     <div class="widget-search">
                                         <form action="#">
-                                            <input type="text" placeholder="Search products...." />
-                                            <button><i class="fal fa-search"></i></button>
+                                            <input type="text" placeholder="Search products...." value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+                                            <button><i class="fal fa-search" onClick={onSearch}></i></button>
                                         </form>
                                     </div>
                                 </div>
@@ -230,13 +290,18 @@ export const ProductFilter = () => {
                                 <div class="single-widget learts-mb-40">
                                     <h3 class="widget-title product-filter-widget-title">Product categories</h3>
                                     <ul class="widget-list">
-                                        <li><a href="#">Gift ideas</a> <span class="count">16</span></li>
+                                        {
+                                            _.keys(categoryList).map((item) => {
+                                                return <li><a onClick={() => setCategory(item)} class={item === category ? 'selected_category' : ''}>{item}</a><span class="count">{categoryList[item]}</span></li>
+                                            })
+                                        }
+                                        {/* <li><a href="#">Gift ideas</a> <span class="count">16</span></li>
                                         <li><a href="#">Home Decor</a> <span class="count">16</span></li>
                                         <li><a href="#">Kids &amp; Babies</a> <span class="count">6</span></li>
                                         <li><a href="#">Kitchen</a> <span class="count">15</span></li>
                                         <li><a href="#">Kniting &amp; Sewing</a> <span class="count">4</span></li>
                                         <li><a href="#">Pots</a> <span class="count">4</span></li>
-                                        <li><a href="#">Toys</a> <span class="count">6</span></li>
+                                        <li><a href="#">Toys</a> <span class="count">6</span></li> */}
                                     </ul>
                                 </div>
                                 {/* <!-- Categories End --> */}

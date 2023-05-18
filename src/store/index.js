@@ -201,6 +201,8 @@ const store = createStore(
 
         selectedCataory: "",
 
+        categoryCount: {},
+
         productList: [],
 
       },
@@ -219,36 +221,43 @@ const store = createStore(
 
 
 
-      fetchProductList: thunk(async (actions, payload) => {
+      fetchProductList: thunk(async (actions, payload, { getState }) => {
 
         try {
 
-          const {
+          let {
             offset,
-            count
-          } = payload;
+            count,
+            productList
+          } = getState().data
 
           console.log(payload)
 
-          if ([offset, count].every(item => _.isUndefined(item))) {
+          // if ([offset, count].every(item => _.isUndefined(item))) {
 
-            notification.open({ type: "warning", description: "Invalid Data given!" })
+          //   notification.open({ type: "warning", description: "Invalid Data given!" })
 
-            return;
-          }
+          //   return;
+          // }
 
           actions.updateStore({ isProductListLoading: true });
 
-          let productListReponse = await axios.post(`http://localhost:3006/api/product/getActiveProducts`, payload);
+          let productListReponse = await axios.post(`http://localhost:3006/api/product/getActiveProducts`, {offset, count, ...payload});
 
           console.log(productListReponse)
 
           const { data: { statusCode = "500", products = [] } } = productListReponse;
 
-
           if (statusCode === STATUS_CODE.SUCCESS) {
+            if (!_.isEmpty(products)) {
+              await actions.updateStore({ productList: offset === 0 ? products : [...productList, ...products] })
+            } else {
+              await actions.updateStore({ offset: offset <= 0 ? offset : offset - 1 })
+            }
 
-            actions.updateStore({ productList: [...products] });
+            productList = getState().data.productList
+
+            actions.updateStore({ categoryCount: {'All' : _.size(productList), ..._.countBy(productList, 'category_name')} })
 
           } else {
 

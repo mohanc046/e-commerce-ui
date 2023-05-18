@@ -338,6 +338,7 @@ export const Header = () => {
                                             <li class=""><a href="#"><span class="menu-text">BAGS</span></a> </li>
                                             <li class=""><a href="#"><span class="menu-text">HOME ANG LIVING</span></a> </li>
                                             <li class=""><a href="#"><span class="menu-text">FASHION</span></a></li>
+                                            <li class=""><a href="/products"><span class="menu-text">ALL PRODUCTS</span></a></li>
                                             <li class=""><a href="/download-catalogue"><span class="menu-text">DOWNLOAD CATALOGUE</span></a></li>
                                         </ul>
                                     </nav>
@@ -606,6 +607,7 @@ export const Header = () => {
                                         <li class=""><a href="#"><span class="menu-text">BAGS</span></a> </li>
                                         <li class=""><a href="#"><span class="menu-text">HOME ANG LIVING</span></a> </li>
                                         <li class=""><a href="#"><span class="menu-text">FASHION</span></a></li>
+                                        <li class=""><a href="/products"><span class="menu-text">ALL PRODUCTS</span></a></li>
                                         <li class=""><a href="/download-catalogue"><span class="menu-text">DOWNLOAD CATALOGUE</span></a></li>
                                     </ul>
                                 </nav>
@@ -872,6 +874,7 @@ export const Header = () => {
                                             <li class=""><a href="#"><span class="menu-text">BAGS</span></a> </li>
                                             <li class=""><a href="#"><span class="menu-text">HOME ANG LIVING</span></a> </li>
                                             <li class=""><a href="#"><span class="menu-text">FASHION</span></a></li>
+                                            <li class=""><a href="/products"><span class="menu-text">ALL PRODUCTS</span></a></li>
                                             <li class=""><a href="/download-catalogue"><span class="menu-text">DOWNLOAD CATALOGUE</span></a></li>
                                         </ul>
                                     </nav>

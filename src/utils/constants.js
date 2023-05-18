@@ -36,7 +36,7 @@ export const FIXED_VALUES = {
   SORTING_OPTIONS: [
     {
       title: 'Default Sorting',
-      value: '',
+      filter: '',
     },
     {
       title: 'Sort By Popularity',
